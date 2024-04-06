@@ -21,7 +21,7 @@ class CustomerList(generics.ListCreateAPIView):
     """
         List all customers or create new Customer
     """
-    queryset = Customer.objects.all()
+    queryset = Customer.objects.all().order_by('id')
     serializer_class = CustomerSerializer
     permission_classes = [SitePermission]
 
@@ -30,7 +30,7 @@ class CustomerDetail(generics.RetrieveUpdateDestroyAPIView):
     """
         Retrieve, update or delete a customer instance
     """
-    queryset = Customer.objects.all()
+    queryset = Customer.objects.all().order_by('id')
     serializer_class = CustomerSerializer
     permission_classes = [SitePermission]
 
@@ -39,7 +39,7 @@ class ProductList(generics.ListCreateAPIView):
     """
         List all products or create new product
     """
-    queryset = Product.objects.all()
+    queryset = Product.objects.all().order_by('id')
     serializer_class = ProductSerializer
     permission_classes = [SitePermission]
 
@@ -48,7 +48,7 @@ class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
     """
         Retrieve, update or delete a product instance
     """
-    queryset = Product.objects.all()
+    queryset = Product.objects.all().order_by('id')
     serializer_class = ProductSerializer
     permission_classes = [SitePermission]
 
@@ -57,7 +57,7 @@ class SaleList(generics.ListCreateAPIView):
     """
         List all sales or create new sale
     """
-    queryset = Sale.objects.all()
+    queryset = Sale.objects.all().order_by('id')
     serializer_class = SaleSerializer
     permission_classes = [SitePermission]
 
@@ -66,7 +66,7 @@ class SaleDetail(generics.RetrieveUpdateDestroyAPIView):
     """
         Retrieve, update or delete a sale instance
     """
-    queryset = Sale.objects.all()
+    queryset = Sale.objects.all().order_by('id')
     serializer_class = SaleSerializer
     permission_classes = [SitePermission]
 

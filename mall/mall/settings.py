@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+from dotenv import load_dotenv
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -102,6 +104,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mall.wsgi.application'
 
 
+load_dotenv()
+
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -109,11 +113,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         # The below details will be placed as an environment variable
-        'NAME': 'yaxnglrl',
-        'USER': 'yaxnglrl',
-        'PASSWORD': 'eMkvNI0kjMl2pUFAvk1jSOvUJV7c8AtB',
-        'HOST': 'cornelius.db.elephantsql.com',
-        'PORT': 5432,
+        'NAME': os.environ['DB_NAME'],
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ['DB_PASSWORD'],
+        'HOST': os.environ['DB_HOST'],
+        'PORT': os.environ['DB_PORT'],
     }
 }
 
