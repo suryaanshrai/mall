@@ -1,1 +1,1 @@
-web: gunicorn mall.wsgi
+web: gunicorn 'mall.wsgi'
