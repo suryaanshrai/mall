@@ -99,9 +99,9 @@ class AnalyticsList(APIView):
             except KeyError:
                 products[sale.item.item_name] = sale.quantity
             try:
-                customers[sale.buyer.number] += sale_price
+                customers[sale.buyer.name] += sale_price
             except KeyError:
-                customers[sale.buyer.number] = sale_price
+                customers[sale.buyer.name] = sale_price
 
         employees = sorted(employees.items(), reverse=True)
         products = sorted(products.items(), reverse=True)
